@@ -2,4 +2,4 @@
 
 ## build
 
-docker buildx build [--platform <target platform>] [-t <tag>] .
+docker buildx build [--platform \<target platform\>] [-t \<tag\>] .
