@@ -64,6 +64,7 @@ jobs:
           type=ref,event=tag
           type=semver,pattern={{raw}}
           type=sha
+          suffix=-static
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
@@ -82,5 +83,5 @@ jobs:
         file: ./staticlib.dockerfile
         platforms: linux/amd64,linux/arm64
         push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ steps.meta.outputs.tags }}-static
+        tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
