@@ -61,10 +61,9 @@ jobs:
         images: name=${{env.IMAGE_BASE_NAME}}
         # generate Docker tags based on the following events/attributes
         tags: |
-          type=ref,event=tag
-          type=semver,pattern={{raw}}
-          type=sha
-          suffix=-static
+          type=ref,event=tag,suffix=-static
+          type=semver,pattern={{raw}},suffix=-static
+          type=sha,suffix=-static
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
